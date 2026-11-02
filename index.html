@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Fundo Thabethe, full stack and cloud engineer in Johannesburg. AWS Solutions Architect Professional and Security Specialty.">
+<title>Fundo Thabethe</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the page is a drawing sheet. A framed title block opens it (name, discipline, location, experience, credentials), then each section sits in a two-column register: label on the left, entries on the right. */
+:root {
+  --bg: #EDF0F4;
+  --surface: #F7F9FB;
+  --ink: #0E1A2B;
+  --muted: #51607A;
+  --line: #C5CEDB;
+  --accent: #1C4ED8;
+  --accent-ink: #FFFFFF;
+  --grid: rgba(28, 78, 216, 0.07);
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A111D;
+    --surface: #101A2B;
+    --ink: #E4EAF4;
+    --muted: #93A1BA;
+    --line: #24324A;
+    --accent: #8AABFF;
+    --accent-ink: #0A111D;
+    --grid: rgba(138, 171, 255, 0.07);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A111D;
+  --surface: #101A2B;
+  --ink: #E4EAF4;
+  --muted: #93A1BA;
+  --line: #24324A;
+  --accent: #8AABFF;
+  --accent-ink: #0A111D;
+  --grid: rgba(138, 171, 255, 0.07);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+.wrap { max-width: 62rem; margin: 0 auto; }
+.mono { font-family: var(--mono); }
+
+/* Sheet */
+.sheet {
+  margin-top: 1.5rem;
+  border: 1px solid var(--line);
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.sheet-body { padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem) clamp(1.75rem, 4vw, 3rem); }
+.eyebrow {
+  font: 500 0.75rem/1.4 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.25rem;
+}
+h1 {
+  font: 700 clamp(2.6rem, 9vw, 5.5rem)/0.98 var(--display);
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-wrap: balance;
+}
+.role {
+  font: 500 clamp(1.15rem, 2.6vw, 1.6rem)/1.3 var(--display);
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+}
+.now {
+  font: 400 0.8rem/1.5 var(--mono);
+  color: var(--muted);
+  margin: 0.6rem 0 0;
+}
+.lede { max-width: 40rem; margin: 1.75rem 0 0; font-size: 1.08rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font: 500 0.9rem/1 var(--body);
+  padding: 0.8rem 1.1rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn:hover { filter: brightness(1.06); }
+
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+.titleblock > div { background: var(--surface); padding: 0.85rem clamp(1rem, 2.5vw, 1.5rem) 1rem; min-width: 0; }
+.titleblock dt { font: 500 0.68rem/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.titleblock dd { margin: 0.2rem 0 0; font: 600 1rem/1.35 var(--display); }
+@media (max-width: 720px) { .titleblock { grid-template-columns: repeat(2, 1fr); } }
+
+/* Sections */
+.sec {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1.5rem 2rem;
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+.sec:first-of-type { margin-top: 3rem; }
+.sec h2 {
+  font: 500 0.78rem/1.4 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0.35rem 0 0;
+}
+@media (max-width: 720px) { .sec { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; } .sec h2 { margin: 0; } }
+
+/* Experience */
+.entry { padding-bottom: 2.25rem; margin-bottom: 2.25rem; border-bottom: 1px solid var(--line); }
+.entry:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+.entry .when { font: 400 0.8rem/1.4 var(--mono); color: var(--accent); margin: 0 0 0.5rem; }
+.entry h3 { font: 650 1.4rem/1.25 var(--display); letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+.entry .org { margin: 0.2rem 0 0; color: var(--muted); }
+.entry ul { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; max-width: 42rem; }
+.entry li { position: relative; padding-left: 1.25rem; }
+.entry li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 0.6rem; height: 1px; background: var(--accent); }
+
+/* Rows: certifications, projects */
+.rows { list-style: none; margin: 0; padding: 0; }
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.15rem 1.5rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.row:first-child { padding-top: 0; }
+.row:last-child { border-bottom: 0; padding-bottom: 0; }
+.row .name { font: 600 1.05rem/1.4 var(--display); }
+.row .meta { grid-column: 1; color: var(--muted); font-size: 0.95rem; }
+.row .date { grid-column: 2; grid-row: 1; font: 400 0.8rem/1.9 var(--mono); color: var(--muted); white-space: nowrap; }
+@media (max-width: 520px) {
+  .row { grid-template-columns: minmax(0, 1fr); }
+  .row .date { grid-column: 1; grid-row: auto; line-height: 1.4; order: -1; color: var(--accent); }
+}
+
+/* Skills */
+.skills { margin: 0; display: grid; }
+.skills > div { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 0.5rem 1.5rem; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+.skills > div:first-child { padding-top: 0; }
+.skills > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.skills dt { font: 500 0.78rem/1.9 var(--mono); letter-spacing: 0.06em; color: var(--muted); }
+.skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag { font: 500 0.85rem/1 var(--body); padding: 0.4rem 0.65rem; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); }
+@media (max-width: 620px) { .skills > div { grid-template-columns: minmax(0, 1fr); } .skills dt { line-height: 1.4; } }
+
+/* Contact */
+.contact { display: grid; gap: 0.75rem; max-width: 34rem; }
+.contact-item { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) auto; gap: 0.75rem; align-items: center; padding: 0.75rem 0.75rem 0.75rem 1rem; border: 1px solid var(--line); background: var(--surface); border-radius: 4px; }
+.contact-item .k { font: 500 0.7rem/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.contact-item .v { font: 500 1rem/1.4 var(--mono); overflow-wrap: anywhere; user-select: all; }
+.copy { font: 500 0.8rem/1 var(--body); padding: 0.55rem 0.8rem; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 3px; cursor: pointer; min-width: 4.5rem; }
+.copy:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 480px) { .contact-item { grid-template-columns: minmax(0, 1fr) auto; } .contact-item .k { grid-column: 1 / -1; } }
+
+footer { border-top: 1px solid var(--line); padding-block: 1.75rem 2.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; font: 400 0.78rem/1.5 var(--mono); color: var(--muted); }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="sheet">
+    <div class="sheet-body">
+      <p class="eyebrow">Portfolio · Johannesburg, Gauteng</p>
+      <h1>Fundo Thabethe</h1>
+      <p class="role">Full Stack &amp; Cloud Engineer</p>
+      <p class="now">Now: Iconix Engineering Solutions (Pty) Ltd, Midrand</p>
+      <p class="lede">I build and ship production systems on AWS and GCP in Kotlin, TypeScript and Python, with a focus on CI/CD, infrastructure as code and observability. Five AWS certifications, including Solutions Architect – Professional and Security – Specialty. Certified Scrum Master.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="#experience">See experience</a>
+      </div>
+    </div>
+    <dl class="titleblock">
+      <div><dt>Discipline</dt><dd>Full stack &amp; cloud</dd></div>
+      <div><dt>Based in</dt><dd>Johannesburg, Gauteng</dd></div>
+      <div><dt>Experience</dt><dd>6+ years</dd></div>
+      <div><dt>Credentials</dt><dd>7 (5 AWS)</dd></div>
+    </dl>
+  </header>
+
+  <main>
+    <section class="sec" id="experience">
+      <h2>Experience</h2>
+      <div>
+        <article class="entry">
+          <p class="when">Feb 2023 – Present</p>
+          <h3>Full Stack Software Engineer</h3>
+          <p class="org">Iconix Engineering Solutions (Pty) Ltd, Midrand</p>
+          <ul>
+            <li>Architect and build full-stack applications in Kotlin, TypeScript and Python.</li>
+            <li>Design and deploy scalable SaaS and PaaS platforms on AWS and GCP.</li>
+            <li>Lead CI/CD with Jenkins and GitLab CI; manage infrastructure with Terraform and CloudFormation.</li>
+            <li>Run monitoring and observability with Prometheus and Grafana.</li>
+            <li>Enforce clean architecture, automated testing (JUnit, Jest) and code review standards.</li>
+            <li>Drive Agile delivery as a certified Scrum Master: sprint planning, backlog refinement and release cycles.</li>
+          </ul>
+        </article>
+        <article class="entry">
+          <p class="when">Feb 2022 – Feb 2023</p>
+          <h3>Software Engineer</h3>
+          <p class="org">Land and Sea Shipping, Roodepoort</p>
+          <ul>
+            <li>Built delivery-management mobile apps (Android, Kotlin/Java) and the supporting web systems.</li>
+            <li>Developed REST APIs and backend services for logistics operations.</li>
+            <li>Set up CI/CD pipelines with GitLab CI and Docker, improving deployment reliability and release frequency.</li>
+            <li>Worked with operations teams to turn logistics workflows into scalable software.</li>
+          </ul>
+        </article>
+        <article class="entry">
+          <p class="when">Jun 2020 – Feb 2022</p>
+          <h3>Web Developer</h3>
+          <p class="org">TheVhinyo, Pretoria</p>
+          <ul>
+            <li>Built responsive websites and e-commerce applications with HTML, CSS, JavaScript and WordPress.</li>
+            <li>Created UI components with jQuery and Bootstrap.</li>
+            <li>Optimised front-end performance and cross-browser compatibility.</li>
+            <li>Delivered client projects to tight deadlines.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="projects">
+      <h2>Projects</h2>
+      <ul class="rows">
+        <li class="row">
+          <span class="name">Kholect</span>
+          <span class="date">Sep 2026</span>
+          <span class="meta">A platform that generates and mails sales leads.</span>
+        </li>
+        <li class="row">
+          <span class="name">zerobillbot</span>
+          <span class="date">Jan 2026</span>
+          <span class="meta">A GitHub app that monitors AWS usage and prevents high-cost spend.</span>
+        </li>
+        <li class="row">
+          <span class="name">Snap and Solve</span>
+          <span class="date">Jun 2025</span>
+          <span class="meta">Take a photo and get an instant AI-generated answer.</span>
+        </li>
+        <li class="row">
+          <span class="name">VirtualverseLabs</span>
+          <span class="date">Jun 2024</span>
+          <span class="meta">An AI image-generation tool, built under my own AI and software studio.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="sec" id="certifications">
+      <h2>Certifications</h2>
+      <ul class="rows">
+        <li class="row">
+          <span class="name">Agile Business Consortium Scrum Master</span>
+          <span class="date">Apr 2026</span>
+          <span class="meta">APMG International</span>
+        </li>
+        <li class="row">
+          <span class="name">AWS Certified Solutions Architect – Professional</span>
+          <span class="date">Jan 2026</span>
+          <span class="meta">Amazon Web Services</span>
+        </li>
+        <li class="row">
+          <span class="name">AWS Certified Security – Specialty</span>
+          <span class="date">Dec 2025</span>
+          <span class="meta">Amazon Web Services</span>
+        </li>
+        <li class="row">
+          <span class="name">AWS Certified Machine Learning Engineer – Associate</span>
+          <span class="date">Oct 2025</span>
+          <span class="meta">Amazon Web Services</span>
+        </li>
+        <li class="row">
+          <span class="name">AWS Certified Cloud Practitioner</span>
+          <span class="date">Jul 2025</span>
+          <span class="meta">Amazon Web Services</span>
+        </li>
+        <li class="row">
+          <span class="name">AWS Certified Developer – Associate</span>
+          <span class="date">Jun 2024</span>
+          <span class="meta">Amazon Web Services</span>
+        </li>
+        <li class="row">
+          <span class="name">IBM DevOps and Software Engineering Professional Certificate</span>
+          <span class="date">Jun 2024</span>
+          <span class="meta">IBM</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="sec" id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd><span class="tag">Kotlin</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">SQL</span></dd></div>
+        <div><dt>Frameworks</dt><dd><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">Flask</span><span class="tag">REST</span><span class="tag">GraphQL</span></dd></div>
+        <div><dt>Cloud and infrastructure</dt><dd><span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span><span class="tag">CloudFormation</span></dd></div>
+        <div><dt>DevOps and observability</dt><dd><span class="tag">Jenkins</span><span class="tag">GitLab CI</span><span class="tag">Prometheus</span><span class="tag">Grafana</span></dd></div>
+        <div><dt>Data</dt><dd><span class="tag">PostgreSQL</span></dd></div>
+        <div><dt>Testing and practice</dt><dd><span class="tag">JUnit</span><span class="tag">Jest</span><span class="tag">Clean architecture</span><span class="tag">Agile</span><span class="tag">Scrum</span></dd></div>
+        <div><dt>Also worked with</dt><dd><span class="tag">C# and .NET</span><span class="tag">PHP</span><span class="tag">Microsoft Azure</span><span class="tag">OpenShift</span></dd></div>
+      </dl>
+    </section>
+
+    <section class="sec" id="education">
+      <h2>Education</h2>
+      <ul class="rows">
+        <li class="row">
+          <span class="name">BSc Mathematics and Computer Science</span>
+          <span class="date">Expected 2028</span>
+          <span class="meta">University of South Africa (UNISA). In progress.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="sec" id="contact">
+      <h2>Contact</h2>
+      <div>
+        <p style="margin:0 0 1.25rem;max-width:34rem">Open to full stack and cloud engineering work. Email is the fastest way to reach me.</p>
+        <div class="contact">
+          <div class="contact-item">
+            <span class="k">Email</span>
+            <span class="v" id="email-val">fundondoh@gmail.com</span>
+            <button class="copy" type="button" data-target="email-val">Copy</button>
+          </div>
+          <div class="contact-item">
+            <span class="k">Phone</span>
+            <span class="v" id="phone-val">0792855627</span>
+            <button class="copy" type="button" data-target="phone-val">Copy</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Fundo Thabethe · Johannesburg, Gauteng</span>
+    <span>Full Stack &amp; Cloud Engineer</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.getAttribute('data-target'));
+    var text = el.textContent.trim();
+    var done = function () {
+      btn.textContent = 'Copied';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    var fallback = function () {
+      var r = document.createRange();
+      r.selectNodeContents(el);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      btn.textContent = 'Selected';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) {
+      fallback();
+    }
+  });
+});
+</script>
+
+</body>
+</html>
